@@ -20,5 +20,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "Recipe App"
+rootProject.name = "Doctors Appoinment System"
 include ':app'

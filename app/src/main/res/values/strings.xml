@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Recipe App</string>
+    <string name="app_name">Doctors Appoinment System</string>
     <string name="splash_blob">splash blob</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
