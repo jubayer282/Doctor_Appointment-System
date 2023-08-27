@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
     binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         binding.floatingActionButton.setOnClickListener(view ->
-                startActivity(new Intent(getContext(), AddRecipeActivity.class)));
+                startActivity(new Intent(getContext(), AddDoctorActivity.class)));
         return binding.getRoot();
     }
 
@@ -51,13 +51,13 @@ public class HomeFragment extends Fragment {
         });
 
         binding.tvSeeAllFavourite.setOnClickListener(view1 -> {
-            Intent intent = new Intent(requireContext(), AllRecipesActivity.class);
+            Intent intent = new Intent(requireContext(), AllDoctorActivity.class);
             intent.putExtra("type", "favourite");
             startActivity(intent);
         });
 
         binding.tvSeeAllPopulars.setOnClickListener(view1 -> {
-            Intent intent = new Intent(requireContext(), AllRecipesActivity.class);
+            Intent intent = new Intent(requireContext(), AllDoctorActivity.class);
             intent.putExtra("type", "popular");
             startActivity(intent);
         });
@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
 
     private void performSearch() {
         String query = Objects.requireNonNull(binding.etSearch.getText()).toString().trim();
-        Intent intent = new Intent(requireContext(), AllRecipesActivity.class);
+        Intent intent = new Intent(requireContext(), AllDoctorActivity.class);
         intent.putExtra("type", "search");
         intent.putExtra("query", query);
         startActivity(intent);
@@ -119,8 +119,8 @@ public class HomeFragment extends Fragment {
             int random = (int) (Math.random() * recipes.size());
             popularRecipes.add(recipes.get(random));
         }
-        binding.rvPopulars.setAdapter(new HorizontalRecipeAdapter());
-        HorizontalRecipeAdapter adapter = (HorizontalRecipeAdapter) binding.rvPopulars.getAdapter();
+        binding.rvPopulars.setAdapter(new HorizontalDoctorAdapter());
+        HorizontalDoctorAdapter adapter = (HorizontalDoctorAdapter) binding.rvPopulars.getAdapter();
         if (adapter != null) {
             adapter.setRecipeList(popularRecipes);
         }
@@ -131,8 +131,8 @@ public class HomeFragment extends Fragment {
             int random = (int) (Math.random() * recipes.size());
             favouriteRecipes.add(recipes.get(random));
         }
-        binding.rvFavoriteMeal.setAdapter(new HorizontalRecipeAdapter());
-        HorizontalRecipeAdapter adapter = (HorizontalRecipeAdapter) binding.rvFavoriteMeal.getAdapter();
+        binding.rvFavoriteMeal.setAdapter(new HorizontalDoctorAdapter());
+        HorizontalDoctorAdapter adapter = (HorizontalDoctorAdapter) binding.rvFavoriteMeal.getAdapter();
         if (adapter != null) {
             adapter.setRecipeList(favouriteRecipes);
         }

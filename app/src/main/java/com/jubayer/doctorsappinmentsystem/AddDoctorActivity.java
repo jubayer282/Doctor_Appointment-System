@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.jubayer.doctorsappinmentsystem.databinding.ActivityAddRecipeBinding;
+import com.jubayer.doctorsappinmentsystem.databinding.ActivityAddDoctorBinding;
 import com.jubayer.doctorsappinmentsystem.models.Category;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
 import com.vansuita.pickimage.bundle.PickSetup;
@@ -37,8 +37,8 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class AddRecipeActivity extends AppCompatActivity {
-    ActivityAddRecipeBinding binding;
+public class AddDoctorActivity extends AppCompatActivity {
+    ActivityAddDoctorBinding binding;
     private boolean isImageSelected = false;
     private ProgressDialog dialog;
     boolean isEdit;
@@ -46,7 +46,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAddRecipeBinding.inflate(getLayoutInflater());
+        binding = ActivityAddDoctorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // load from the categories from the firebase database
@@ -116,12 +116,12 @@ public class AddRecipeActivity extends AppCompatActivity {
     }
 
     private void pickImage() {
-        PickImageDialog.build(new PickSetup()).show(AddRecipeActivity.this).setOnPickResult(r -> {
+        PickImageDialog.build(new PickSetup()).show(AddDoctorActivity.this).setOnPickResult(r -> {
             Log.e("ProfileFragment", "onPickResult: " + r.getUri());
             binding.imgRecipe.setImageBitmap(r.getBitmap());
             binding.imgRecipe.setScaleType(ImageView.ScaleType.CENTER_CROP);
             isImageSelected = true;
-        }).setOnPickCancel(() -> Toast.makeText(AddRecipeActivity.this, "Cancelled", Toast.LENGTH_SHORT).show());
+        }).setOnPickCancel(() -> Toast.makeText(AddDoctorActivity.this, "Cancelled", Toast.LENGTH_SHORT).show());
     }
 
     private void getData() {
@@ -183,7 +183,7 @@ public class AddRecipeActivity extends AppCompatActivity {
                 Uri downloadUri = task.getResult();
                 // download url in firebase database
                 url[0] = downloadUri.toString();
-                Toast.makeText(AddRecipeActivity.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddDoctorActivity.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
                 saveDataInDatabase(recipe, url[0]);
             } else {
                 // Handle failures

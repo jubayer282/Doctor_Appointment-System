@@ -63,7 +63,7 @@ private User user;
             PickImageDialog.build(new PickSetup()).show(requireActivity()).setOnPickResult(r -> {
                Log.e("ProfileFragment", "onPickResult: " + r.getUri());
                binding.imgProfile.setImageBitmap(r.getBitmap());
-                binding.imgProfile.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                binding.imgCover.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 uploadImage(r.getBitmap());
             }).setOnPickCancel(() -> Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show());
         });

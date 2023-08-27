@@ -58,4 +58,11 @@
     <string name="sign_out">Sign Out</string>
     <string name="developer_name">Jubayer Hossain</string>
     <string name="developer_id">the_Jubayer Hossain</string>
+    <string name="copyright_by_our_team">Copyright by our Team</string>
+    <string name="share_add_all_doctor_s_here">Share add all doctor\'s here</string>
+    <string name="add_doctor">Add Doctor</string>
+    <string name="here_all_of_ncategory_in_doctor_s">Here All of \ncategory in doctor\'s</string>
+    <string name="welcome_to_our_doctor_nappointment_system_nhere_all_of_doctors_list">Welcome to our Doctor \nAppointment System. \nHere all of doctors list.</string>
+    <string name="your_favourite_doctor_s_here">Your Favourite Doctor\'s here</string>
+    <string name="populars_doctor_s">Populars Doctor\'s</string>
 </resources>

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.jubayer.doctorsappinmentsystem.AllRecipesActivity;
+import com.jubayer.doctorsappinmentsystem.AllDoctorActivity;
 import com.jubayer.doctorsappinmentsystem.R;
 import com.jubayer.doctorsappinmentsystem.databinding.ItemCategoryBinding;
 import com.jubayer.doctorsappinmentsystem.models.Category;
@@ -65,7 +65,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                     .into(binding.imgBgCategory);
 
             binding.getRoot().setOnClickListener(view -> {
-                Intent intent = new Intent(binding.getRoot().getContext(), AllRecipesActivity.class);
+                Intent intent = new Intent(binding.getRoot().getContext(), AllDoctorActivity.class);
                 intent.putExtra("type", "category");
                 intent.putExtra("category", category.getName());
                 binding.getRoot().getContext().startActivity(intent);

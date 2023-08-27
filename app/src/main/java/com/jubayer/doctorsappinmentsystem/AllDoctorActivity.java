@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jubayer.doctorsappinmentsystem.adapter.DoctorAdapter;
-import com.jubayer.doctorsappinmentsystem.databinding.ActivityAllRecipesBinding;
+import com.jubayer.doctorsappinmentsystem.databinding.ActivityAllDoctorBinding;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
 
 import java.util.ArrayList;
@@ -22,14 +22,14 @@ import java.util.List;
 
 
 
-public class AllRecipesActivity extends AppCompatActivity {
-    ActivityAllRecipesBinding binding;
+public class AllDoctorActivity extends AppCompatActivity {
+    ActivityAllDoctorBinding binding;
     DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAllRecipesBinding.inflate(getLayoutInflater());
+        binding = ActivityAllDoctorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         reference = FirebaseDatabase.getInstance().getReference("Recipes");

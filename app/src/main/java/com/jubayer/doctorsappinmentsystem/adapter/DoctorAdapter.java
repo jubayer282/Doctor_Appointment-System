@@ -1,7 +1,8 @@
 package com.jubayer.doctorsappinmentsystem.adapter;
 
 
-import static com.jubayer.doctorsappinmentsystem.databinding.ItemRecipeBinding.inflate;
+
+import static com.jubayer.doctorsappinmentsystem.databinding.ItemDoctorBinding.inflate;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.jubayer.doctorsappinmentsystem.R;
-import com.jubayer.doctorsappinmentsystem.RecipeDetailsActivity;
-import com.jubayer.doctorsappinmentsystem.databinding.ItemRecipeBinding;
+import com.jubayer.doctorsappinmentsystem.DoctorDetailsActivity;
+import com.jubayer.doctorsappinmentsystem.databinding.ItemDoctorBinding;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
 
 import java.util.ArrayList;
@@ -47,8 +48,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.RecipeHold
     }
 
     public static class RecipeHolder extends RecyclerView.ViewHolder {
-        ItemRecipeBinding binding;
-        public RecipeHolder(@NonNull ItemRecipeBinding itemView) {
+        ItemDoctorBinding binding;
+        public RecipeHolder(@NonNull ItemDoctorBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
         }
@@ -64,7 +65,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.RecipeHold
             binding.tvRecipeName.setText(recipe.getName());
 
             binding.getRoot().setOnClickListener(view -> {
-                Intent intent = new Intent(binding.getRoot().getContext(), RecipeDetailsActivity.class);
+                Intent intent = new Intent(binding.getRoot().getContext(), DoctorDetailsActivity.class);
                 intent.putExtra("recipe", recipe);
                 binding.getRoot().getContext().startActivity(intent);
             });

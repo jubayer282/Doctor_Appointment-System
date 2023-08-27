@@ -15,19 +15,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jubayer.doctorsappinmentsystem.databinding.ActivityRecipeDetailsBinding;
+import com.jubayer.doctorsappinmentsystem.databinding.ActivityDoctorDetailsBinding;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
 import com.jubayer.doctorsappinmentsystem.room.FavouriteRecipe;
 import com.jubayer.doctorsappinmentsystem.room.RecipeRepository;
 
 
-public class RecipeDetailsActivity extends AppCompatActivity {
-    ActivityRecipeDetailsBinding binding;
+public class DoctorDetailsActivity extends AppCompatActivity {
+    ActivityDoctorDetailsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityRecipeDetailsBinding.inflate(getLayoutInflater());
+        binding = ActivityDoctorDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
     }
@@ -44,7 +44,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 */
 
         Glide
-                .with(RecipeDetailsActivity.this)
+                .with(DoctorDetailsActivity.this)
                 .load(recipe.getImage())
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher)
@@ -56,7 +56,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             binding.imgEdit.setVisibility(View.GONE);
         }
         binding.imgEdit.setOnClickListener(view -> {
-            Intent intent = new Intent(binding.getRoot().getContext(), AddRecipeActivity.class);
+            Intent intent = new Intent(binding.getRoot().getContext(), AddDoctorActivity.class);
             intent.putExtra("recipe", recipe);
             intent.putExtra("isEdit", true);
             binding.getRoot().getContext().startActivity(intent);
@@ -102,7 +102,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 binding.tvCalories.setText("Schedule: " + recipe.getDate());
 
                 Glide
-                        .with(RecipeDetailsActivity.this)
+                        .with(DoctorDetailsActivity.this)
                         .load(recipe.getImage())
                         .centerCrop()
                         .placeholder(R.mipmap.ic_launcher)

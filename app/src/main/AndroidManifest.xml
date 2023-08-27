@@ -12,22 +12,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RecipeApp"
+        android:theme="@style/Base.Theme.DoctorApp"
         tools:targetApi="31">
         <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".AllRecipesActivity"
+            android:name=".AllDoctorActivity"
             android:exported="false" />
         <activity
-            android:name=".RecipeDetailsActivity"
+            android:name=".DoctorDetailsActivity"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".RecipeDeatilsActivity"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
-            android:name=".AddRecipeActivity"
+            android:name=".AddDoctorActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

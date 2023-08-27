@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.jubayer.doctorsappinmentsystem.databinding.ItemRecipeHorizontalBinding;
+import com.jubayer.doctorsappinmentsystem.databinding.ItemDoctorHorizontalBinding;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HorizontalRecipeAdapter extends RecyclerView.Adapter<HorizontalRecipeAdapter.RecipeHolder> {
+public class HorizontalDoctorAdapter extends RecyclerView.Adapter<HorizontalDoctorAdapter.RecipeHolder> {
     List<Doctor> recipeList = new ArrayList<>();
 
     public void setRecipeList(List<Doctor> recipeList) {
@@ -30,12 +30,12 @@ public class HorizontalRecipeAdapter extends RecyclerView.Adapter<HorizontalReci
 
     @NonNull
     @Override
-    public HorizontalRecipeAdapter.RecipeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RecipeHolder(ItemRecipeHorizontalBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public HorizontalDoctorAdapter.RecipeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new RecipeHolder(ItemDoctorHorizontalBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HorizontalRecipeAdapter.RecipeHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HorizontalDoctorAdapter.RecipeHolder holder, int position) {
         Doctor recipe = recipeList.get(position);
         holder.onBind(recipe);
     }
@@ -46,8 +46,8 @@ public class HorizontalRecipeAdapter extends RecyclerView.Adapter<HorizontalReci
     }
 
     public static class RecipeHolder extends RecyclerView.ViewHolder {
-        ItemRecipeHorizontalBinding binding;
-        public RecipeHolder(@NonNull ItemRecipeHorizontalBinding itemView) {
+        ItemDoctorHorizontalBinding binding;
+        public RecipeHolder(@NonNull ItemDoctorHorizontalBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
         }
@@ -63,7 +63,7 @@ public class HorizontalRecipeAdapter extends RecyclerView.Adapter<HorizontalReci
             binding.tvRecipeName.setText(recipe.getName());
 
             binding.getRoot().setOnClickListener(view -> {
-                Intent intent = new Intent(binding.getRoot().getContext(), RecipeDetailsActivity.class);
+                Intent intent = new Intent(binding.getRoot().getContext(), DoctorDetailsActivity.class);
                 intent.putExtra("recipe", recipe);
                 binding.getRoot().getContext().startActivity(intent);
             });

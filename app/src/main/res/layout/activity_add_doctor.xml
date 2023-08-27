@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".AddRecipeActivity">
+    tools:context=".AddDoctorActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="@string/share_your_magic_n_masterpiece_with_the_world"
+        android:text="@string/share_add_all_doctor_s_here"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/add_recipe"
+        android:text="@string/add_doctor"
         android:textColor="@color/blue"
         android:fontFamily="@font/poppins_semibold"
         app:layout_constraintEnd_toEndOf="parent"
