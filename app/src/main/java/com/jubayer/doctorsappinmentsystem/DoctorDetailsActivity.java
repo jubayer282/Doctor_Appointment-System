@@ -39,6 +39,14 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         binding.tvDescription.setText(recipe.getDescription());
         binding.tvTime.setText("Time: " + recipe.getTime());
         binding.tvCalories.setText("Schedule: " + recipe.getDate());
+
+        /*appoinment button*/
+        binding.appoinmentIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DoctorDetailsActivity.this, GetAppoinmentActivity.class));
+            }
+        });
 /*
         binding.tvTime.setText(recipe.getTime());
 */
