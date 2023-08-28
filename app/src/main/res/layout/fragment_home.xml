@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.24000001"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionSearch"
-            android:hint="@string/search_your_favourite_recipe" />
+            android:hint="@string/search_your_favourite_doctor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

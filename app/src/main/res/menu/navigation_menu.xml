@@ -17,9 +17,9 @@
         android:title="Privacy policy" />
 
     <item
-        android:id="@+id/apps"
+        android:id="@+id/about_us"
         android:icon="@drawable/ic_apps"
-        android:title="Our Apps" />
+        android:title="About_Us" />
 
     <item
         android:id="@+id/logout"

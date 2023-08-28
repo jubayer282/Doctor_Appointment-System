@@ -250,7 +250,7 @@
                     <ImageView
                         android:id="@+id/loginBtn"
                         android:layout_width="19.7dp"
-                        android:layout_height="16.3dp"
+                        android:layout_height="match_parent"
                         android:src="@drawable/black_arrow" />
 
                 </LinearLayout>

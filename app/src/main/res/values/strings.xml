@@ -65,4 +65,7 @@
     <string name="welcome_to_our_doctor_nappointment_system_nhere_all_of_doctors_list">Welcome to our Doctor \nAppointment System. \nHere all of doctors list.</string>
     <string name="your_favourite_doctor_s_here">Your Favourite Doctor\'s here</string>
     <string name="populars_doctor_s">Populars Doctor\'s</string>
+    <string name="search_your_favourite_doctor">Search your favourite doctor</string>
+    <string name="about_us_of_our_system">About us of our system</string>
+    <string name="copyright_by_our_teams">© Copyright by our team</string>
 </resources>

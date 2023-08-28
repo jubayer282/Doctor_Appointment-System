@@ -144,6 +144,14 @@ public class MainActivity extends AppCompatActivity {
             finish();
             finishAffinity();
             startActivity(new Intent(MainActivity.this, SignIn.class));
+        } else if (itemId == R.id.developer) {
+            Toast.makeText(this, "Developer list here", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, DeveloperActivity.class));
+            onBackPressed();
+        } else if (itemId == R.id.about_us) {
+            Toast.makeText(this, "About_us details here...!!!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, About_Us.class));
+            onBackPressed();
         }
 
         return super.onOptionsItemSelected(item);

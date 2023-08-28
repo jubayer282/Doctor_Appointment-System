@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
         });
 
         binding.btnSetting.setOnClickListener(view12 -> startActivity(new Intent(requireContext(), SettingActivity.class)));
+        //binding.btnChat.setOnClickListener(view13 -> startActivity(new Intent(requireContext(), LiveChatBotActivity.class)));
     }
 
     private void performSearch() {
