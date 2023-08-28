@@ -7,6 +7,11 @@
         android:title="Profile" />
 
     <item
+        android:id="@+id/appointment"
+        android:icon="@drawable/chat"
+        android:title="Appointment" />
+
+    <item
         android:id="@+id/developer"
         android:icon="@drawable/ic_dedveloper"
         android:title="Developer" />

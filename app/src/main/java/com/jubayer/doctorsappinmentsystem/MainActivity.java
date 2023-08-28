@@ -154,6 +154,11 @@ public class MainActivity extends AppCompatActivity {
             onBackPressed();
         }
 
+        else if (itemId == R.id.appointment)
+        {
+            startActivity(new Intent(MainActivity.this, AppoinmentDetailsActivity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
