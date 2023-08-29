@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/admin"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/admin"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.DoctorApp"
         tools:targetApi="31">

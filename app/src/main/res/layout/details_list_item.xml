@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardElevation="5dp"
-    app:cardCornerRadius="5dp"
-    >
+    app:cardCornerRadius="5dp">
 
 
     <LinearLayout
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
             android:text="unapproved"
-            android:textColor="@color/black" />
+            android:textColor="@color/accent" />
 
 
     </LinearLayout>

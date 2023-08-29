@@ -1,4 +1,4 @@
-package com.jubayer.doctorsappinmentsystem;
+package com.jubayer.doctorsappinmentsystem.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+import com.jubayer.doctorsappinmentsystem.R;
+import com.jubayer.doctorsappinmentsystem.models.AppoinmentData;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         AppoinmentData data = list.get(position);
 
         holder.nameTv.setText("Name: "+data.getName());
-        holder.moblieTv.setText("Phone Number :"+data.getMobile());
+        holder.moblieTv.setText("Phone Number: "+data.getMobile());
         holder.timeTv.setText("Appointment Time: "+data.getTime());
         holder.dayTv.setText("Day of Week: "+data.getDay());
         holder.statusTv.setText("Status: "+data.getStatus());

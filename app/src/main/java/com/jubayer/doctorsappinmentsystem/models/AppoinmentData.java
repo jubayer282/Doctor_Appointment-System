@@ -1,4 +1,4 @@
-package com.jubayer.doctorsappinmentsystem;
+package com.jubayer.doctorsappinmentsystem.models;
 
 public class AppoinmentData {
 
