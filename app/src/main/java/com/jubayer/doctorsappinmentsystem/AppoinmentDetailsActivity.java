@@ -26,7 +26,6 @@ public class AppoinmentDetailsActivity extends AppCompatActivity {
     DatabaseReference reference;
 
     ArrayList <AppoinmentData> model;
-
     AppointmentAdapter adapter;
 
 
