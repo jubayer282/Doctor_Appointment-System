@@ -57,9 +57,9 @@ public class GetAppoinmentActivity extends AppCompatActivity {
 
         if (!name.isEmpty() && !phone.isEmpty()) {
 
-            String userId = databaseReference.push().getKey();
+/*         String userId = databaseReference.push().getKey();
             AppoinmentData appoinmentData = new AppoinmentData(name, phone, time, day, status);
-            databaseReference.child(userId).setValue(appoinmentData);
+            databaseReference.child(userId).setValue(appoinmentData);*/
 
             Toast.makeText(this, "Appointment request complete", Toast.LENGTH_SHORT).show();
 
