@@ -9,12 +9,10 @@ public class Doctor implements Serializable {
     public String name;
     public String image;
     public String description;
-
     public String category;
     public String date;
     public String time;
     public String authorId;
-
     public Doctor() {
     }
 

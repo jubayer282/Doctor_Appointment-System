@@ -33,33 +33,33 @@ public class AllDoctorActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         reference = FirebaseDatabase.getInstance().getReference("Doctors");
-        binding.rvRecipes.setLayoutManager(new GridLayoutManager(this, 2));
-        binding.rvRecipes.setAdapter(new DoctorAdapter());
+        binding.rvDoctors.setLayoutManager(new GridLayoutManager(this, 2));
+        binding.rvDoctors.setAdapter(new DoctorAdapter());
         String type = getIntent().getStringExtra("type");
         if (type.equalsIgnoreCase("category")) {
             filterByCategory();
         } else if (type.equalsIgnoreCase("search")) {
-            loadByRecipes();
+            loadByDoctors();
         } else {
-            loadAllRecipes();
+            loadAllDoctors();
         }
     }
 
-    private void loadByRecipes() {
+    private void loadByDoctors() {
         // Search recipe name
         String query = getIntent().getStringExtra("query");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Doctor> recipes = new ArrayList<>();
+                List<Doctor> doctors = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Doctor recipe = dataSnapshot.getValue(Doctor.class);
-                    if (recipe.getName().toLowerCase().contains(query.toLowerCase()))
-                      recipes.add(recipe);
+                    Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                    if (doctor.getName().toLowerCase().contains(query.toLowerCase()))
+                        doctors.add(doctor);
                 }
-                DoctorAdapter adapter = (DoctorAdapter) binding.rvRecipes.getAdapter();
+                DoctorAdapter adapter = (DoctorAdapter) binding.rvDoctors.getAdapter();
                 if (adapter != null) {
-                    adapter.setRecipeList(recipes);
+                    adapter.setDoctorList(doctors);
                 }
 
             }
@@ -72,7 +72,7 @@ public class AllDoctorActivity extends AppCompatActivity {
 
     }
 
-    private void loadAllRecipes() {
+    private void loadAllDoctors() {
         // load all recipes
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,9 +83,9 @@ public class AllDoctorActivity extends AppCompatActivity {
                         recipes.add(recipe);
                 }
                 Collections.shuffle(recipes);
-                DoctorAdapter adapter = (DoctorAdapter) binding.rvRecipes.getAdapter();
+                DoctorAdapter adapter = (DoctorAdapter) binding.rvDoctors.getAdapter();
                 if (adapter != null) {
-                    adapter.setRecipeList(recipes);
+                    adapter.setDoctorList(recipes);
                 }
 
             }
@@ -108,9 +108,9 @@ public class AllDoctorActivity extends AppCompatActivity {
                     Doctor recipe = dataSnapshot.getValue(Doctor.class);
                     recipes.add(recipe);
                 }
-                DoctorAdapter adapter = (DoctorAdapter) binding.rvRecipes.getAdapter();
+                DoctorAdapter adapter = (DoctorAdapter) binding.rvDoctors.getAdapter();
                 if (adapter != null) {
-                    adapter.setRecipeList(recipes);
+                    adapter.setDoctorList(recipes);
                 }
             }
 

@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jubayer.doctorsappinmentsystem.AddDoctorActivity;
 import com.jubayer.doctorsappinmentsystem.AllDoctorActivity;
-import com.jubayer.doctorsappinmentsystem.HorizontalDoctorAdapter;
+import com.jubayer.doctorsappinmentsystem.adapter.HorizontalDoctorAdapter;
 import com.jubayer.doctorsappinmentsystem.SettingActivity;
 import com.jubayer.doctorsappinmentsystem.databinding.FragmentHomeBinding;
 import com.jubayer.doctorsappinmentsystem.models.Doctor;
@@ -102,13 +102,13 @@ public class HomeFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Doctor> recipes = new ArrayList<>();
+                List<Doctor> doctors = new ArrayList<>();
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                    Doctor recipe = dataSnapshot.getValue(Doctor.class);
-                    recipes.add(recipe);
+                    Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                    doctors.add(doctor);
                 }
-                loadPopularRecipes(recipes);
-                loadFavouriteRecipes(recipes);
+                loadPopularDoctors(doctors);
+                loadFavouriteDoctors(doctors);
             }
 
             @Override
@@ -118,28 +118,28 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void loadPopularRecipes(List<Doctor> recipes) {
-        List<Doctor> popularRecipes = new ArrayList<>();
+    private void loadPopularDoctors(List<Doctor> doctors) {
+        List<Doctor> popularDoctors = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            int random = (int) (Math.random() * recipes.size());
-            popularRecipes.add(recipes.get(random));
+            int random = (int) (Math.random() * doctors.size());
+            popularDoctors.add(doctors.get(random));
         }
         binding.rvPopulars.setAdapter(new HorizontalDoctorAdapter());
         HorizontalDoctorAdapter adapter = (HorizontalDoctorAdapter) binding.rvPopulars.getAdapter();
         if (adapter != null) {
-            adapter.setRecipeList(popularRecipes);
+            adapter.setDoctorList(popularDoctors);
         }
     }
-    private void loadFavouriteRecipes(List<Doctor> recipes) {
-        List<Doctor> favouriteRecipes = new ArrayList<>();
+    private void loadFavouriteDoctors(List<Doctor> doctors) {
+        List<Doctor> favouriteDoctors = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            int random = (int) (Math.random() * recipes.size());
-            favouriteRecipes.add(recipes.get(random));
+            int random = (int) (Math.random() * doctors.size());
+            favouriteDoctors.add(doctors.get(random));
         }
-        binding.rvFavoriteMeal.setAdapter(new HorizontalDoctorAdapter());
-        HorizontalDoctorAdapter adapter = (HorizontalDoctorAdapter) binding.rvFavoriteMeal.getAdapter();
+        binding.rvFavoriteDoctor.setAdapter(new HorizontalDoctorAdapter());
+        HorizontalDoctorAdapter adapter = (HorizontalDoctorAdapter) binding.rvFavoriteDoctor.getAdapter();
         if (adapter != null) {
-            adapter.setRecipeList(favouriteRecipes);
+            adapter.setDoctorList(favouriteDoctors);
         }
 
     }
