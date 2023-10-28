@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadRecipes();
+        loadDoctors();
 
         binding.etSearch.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_SEARCH) {
@@ -78,9 +78,9 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void loadRecipes() {
+    private void loadDoctors() {
         // we wil load recipes from our database
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Recipes");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Doctors");
        /* reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
