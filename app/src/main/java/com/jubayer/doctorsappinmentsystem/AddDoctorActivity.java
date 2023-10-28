@@ -81,7 +81,7 @@ public class AddDoctorActivity extends AppCompatActivity {
         Glide
                 .with(binding.getRoot().getContext())
                 .load(doctor.getImage())
-                .centerCrop()
+                /*.centerCrop()*/
                 .placeholder(R.drawable.placeholder)
                 .into(binding.imgDoctor);
         binding.btnAddDoctor.setText("Update Doctor");
