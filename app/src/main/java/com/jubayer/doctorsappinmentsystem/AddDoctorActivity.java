@@ -44,6 +44,8 @@ public class AddDoctorActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     boolean isEdit;
 
+    private Doctor doctor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,7 @@ public class AddDoctorActivity extends AppCompatActivity {
     }
 
     private void editDoctor() {
-        Doctor doctor = (Doctor) getIntent().getSerializableExtra("doctor");
+        doctor = (Doctor) getIntent().getSerializableExtra("doctor");
         isImageSelected = true;
 
         binding.etDoctorName.setText(doctor.getName());
@@ -81,7 +83,7 @@ public class AddDoctorActivity extends AppCompatActivity {
         Glide
                 .with(binding.getRoot().getContext())
                 .load(doctor.getImage())
-                /*.centerCrop()*/
+                .centerCrop()
                 .placeholder(R.drawable.placeholder)
                 .into(binding.imgDoctor);
         binding.btnAddDoctor.setText("Update Doctor");
@@ -150,8 +152,8 @@ public class AddDoctorActivity extends AppCompatActivity {
             dialog.setMessage("Uploading Doctor...");
             dialog.setCancelable(false);
             dialog.show();
-            //created a recipe object will auto generate
-            Doctor doctor = new Doctor(doctorName, doctorDescription, sheduleTime, doctorCategory, date, "", FirebaseAuth.getInstance().getUid());
+            //created a doctor object will auto generate
+            Doctor doctor = new Doctor(doctorName, doctorDescription, date, doctorCategory,  sheduleTime,    "", FirebaseAuth.getInstance().getUid());
             // we will uploaded the image to the firebase storage
             uploadImage(doctor);
         }
@@ -195,11 +197,11 @@ public class AddDoctorActivity extends AppCompatActivity {
         return url[0];
     }
 
-    private void saveDataInDatabase(Doctor doctor, String url) {
-        doctor.setImage(url);
+    private void saveDataInDatabase(Doctor doctorData, String url) {
+        doctorData.setImage(url);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Doctors");
         if (isEdit) {
-            reference.child(doctor.getId()).setValue(doctor).addOnCompleteListener(task -> {
+            reference.child(doctor.getId()).setValue(doctorData).addOnCompleteListener(task -> {
                 dialog.dismiss();
                 if (task.isSuccessful()) {
                     Toast.makeText(this, "Doctor Updated Successfully", Toast.LENGTH_SHORT).show();
@@ -210,9 +212,9 @@ public class AddDoctorActivity extends AppCompatActivity {
             });
         } else {
             String id = reference.push().getKey();
-            doctor.setId(id);
+            doctorData.setId(id);
             if (id != null) {
-                reference.child(id).setValue(doctor).addOnCompleteListener(task -> {
+                reference.child(id).setValue(doctorData).addOnCompleteListener(task -> {
                     dialog.dismiss();
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Doctor Added Successfully", Toast.LENGTH_SHORT).show();

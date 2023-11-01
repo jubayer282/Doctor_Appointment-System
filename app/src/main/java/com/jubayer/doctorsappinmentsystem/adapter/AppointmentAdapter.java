@@ -61,11 +61,10 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
 
                 if (statu.equals("unapproved")) {
 
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(data.getUid());
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(data.getaID());
 
-                    AppoinmentData appoinmentData = new AppoinmentData(statusTv);
-                    databaseReference.child(data.getStatus()).setValue(appoinmentData);
-                    Toast.makeText(context, "approved", Toast.LENGTH_SHORT).show();
+                    databaseReference.child("status").setValue(statusTv);
+                    Toast.makeText(context, "Approved", Toast.LENGTH_SHORT).show();
 
                 } else {
                     Toast.makeText(context, "Not approved", Toast.LENGTH_SHORT).show();

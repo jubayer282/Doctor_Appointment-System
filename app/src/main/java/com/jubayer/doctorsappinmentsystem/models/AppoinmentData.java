@@ -2,7 +2,7 @@ package com.jubayer.doctorsappinmentsystem.models;
 
 public class AppoinmentData {
 
-    String name, mobile, time, day, drname,  status, uid, statues, statu;
+    String aID, name, mobile, time, day, drname,  status, uid, statues, statu;
 
     public AppoinmentData() {
     }
@@ -10,7 +10,16 @@ public class AppoinmentData {
     public AppoinmentData(String statues) {
     }
 
-    public AppoinmentData(String name, String mobile, String time, String day, String drname, String status, String uid, String statues, String statu) {
+    public String getaID() {
+        return aID;
+    }
+
+    public void setaID(String aID) {
+        this.aID = aID;
+    }
+
+    public AppoinmentData(String aID, String name, String mobile, String time, String day, String drname, String status, String uid, String statues, String statu) {
+        this.aID = aID;
         this.name = name;
         this.mobile = mobile;
         this.time = time;

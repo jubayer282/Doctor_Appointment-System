@@ -73,19 +73,19 @@ public class AllDoctorActivity extends AppCompatActivity {
     }
 
     private void loadAllDoctors() {
-        // load all recipes
+        // load all doctors
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Doctor> recipes = new ArrayList<>();
+                List<Doctor> doctors = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Doctor recipe = dataSnapshot.getValue(Doctor.class);
-                        recipes.add(recipe);
+                    Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                    doctors.add(doctor);
                 }
-                Collections.shuffle(recipes);
+                Collections.shuffle(doctors);
                 DoctorAdapter adapter = (DoctorAdapter) binding.rvDoctors.getAdapter();
                 if (adapter != null) {
-                    adapter.setDoctorList(recipes);
+                    adapter.setDoctorList(doctors);
                 }
 
             }
@@ -98,19 +98,19 @@ public class AllDoctorActivity extends AppCompatActivity {
     }
 
     private void filterByCategory() {
-        // Filter recipes by category
+        // Filter doctors by category
         String category = getIntent().getStringExtra("category");
         reference.orderByChild("category").equalTo(category).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Doctor> recipes = new ArrayList<>();
+                List<Doctor> doctors = new ArrayList<>();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Doctor recipe = dataSnapshot.getValue(Doctor.class);
-                    recipes.add(recipe);
+                    Doctor doctor = dataSnapshot.getValue(Doctor.class);
+                    doctors.add(doctor);
                 }
                 DoctorAdapter adapter = (DoctorAdapter) binding.rvDoctors.getAdapter();
                 if (adapter != null) {
-                    adapter.setDoctorList(recipes);
+                    adapter.setDoctorList(doctors);
                 }
             }
 

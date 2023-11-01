@@ -51,7 +51,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
         }
 
         public void onBind(Doctor doctor) {
-            // here perform all our recipe binding operation datastore
+            // here perform all our doctor binding operation datastore
             Glide
                     .with(binding.getRoot().getContext())
                     .load(doctor.getImage())

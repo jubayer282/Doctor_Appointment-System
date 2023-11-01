@@ -1,7 +1,7 @@
 package com.jubayer.doctorsappinmentsystem.models;
 
 public class Category {
-    private String id, name, image;
+     String id, name, image;
      public Category() {
 
      }
