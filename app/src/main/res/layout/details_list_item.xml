@@ -74,10 +74,19 @@
             android:id="@+id/approveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="approved"
-            android:layout_gravity="right"
-            android:textAllCaps="false"
-            />
+            android:layout_gravity="left"
+            android:text="Approved"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/unapproveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Unapproved"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 

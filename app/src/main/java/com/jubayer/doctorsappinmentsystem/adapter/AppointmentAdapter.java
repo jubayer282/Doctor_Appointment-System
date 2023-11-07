@@ -73,6 +73,26 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             }
         });
 
+        holder.unapproveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String statusTv = "unapproved";
+
+                if (statu.equals("approved")) {
+
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("appointment").child(data.getaID());
+
+                    databaseReference.child("status").setValue(statusTv);
+                    Toast.makeText(context, "Unapproved", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(context, "approved", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -83,7 +103,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
     public class MyHolder extends RecyclerView.ViewHolder {
 
         TextView nameTv, moblieTv, timeTv, dayTv, statusTv, drnameTv, uidTv;
-        Button approveBtn;
+        Button approveBtn, unapproveBtn;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,7 +117,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             drnameTv = itemView.findViewById(R.id.drnameTv);
             uidTv = itemView.findViewById(R.id.uidTv);
 
-
+            unapproveBtn = itemView.findViewById(R.id.unapproveBtn);
         }
     }
 }
