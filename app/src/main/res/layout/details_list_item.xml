@@ -70,23 +70,38 @@
             android:text="user Id"
             android:textColor="@color/accent" />
 
-        <Button
-            android:id="@+id/approveBtn"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Approved"
-            android:layout_marginTop="8dp"
-            android:textAllCaps="false" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/unapproveBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Unapproved"
-            android:layout_marginTop="8dp"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/approveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Approved"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primaryDark"
+                />
+
+            <Button
+                android:id="@+id/unapproveBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:text="Unapproved"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primaryDark"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

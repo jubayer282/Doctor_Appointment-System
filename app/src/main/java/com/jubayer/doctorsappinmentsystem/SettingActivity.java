@@ -15,6 +15,10 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        /*action bar and title name*/
+        getSupportActionBar().setTitle("Setting");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         /*getSupportActionBar().hide();*/
         binding.linearLayoutShare.setOnClickListener(view -> shareApp());
         binding.linearLayoutRate.setOnClickListener(view -> rateApp());

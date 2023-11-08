@@ -11,7 +11,8 @@ public class Policy_Privacy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_policy_privacy);
 
-        getSupportActionBar().setTitle("Privacy Policy");
+        /*action bar and title name*/
+        getSupportActionBar().setTitle("Policy Privacy");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /*prevent screen shot and screen recorder*/
