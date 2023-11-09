@@ -77,7 +77,7 @@ public class AddDoctorActivity extends AppCompatActivity {
         binding.etDoctorName.setText(doctor.getName());
         binding.etDescription.setText(doctor.getDescription());
         binding.etSheduleTime.setText(doctor.getTime());
-        binding.etCategory.setText(doctor.getCategory());
+        binding.etCategory.setHint(doctor.getCategory());
         binding.etDate.setText(doctor.getDate());
 
         Glide
@@ -86,6 +86,7 @@ public class AddDoctorActivity extends AppCompatActivity {
                 .centerCrop()
                 .placeholder(R.drawable.placeholder)
                 .into(binding.imgDoctor);
+
         binding.btnAddDoctor.setText("Update Doctor");
     }
 
@@ -153,13 +154,13 @@ public class AddDoctorActivity extends AppCompatActivity {
             dialog.setCancelable(false);
             dialog.show();
             //created a doctor object will auto generate
-            Doctor doctor = new Doctor(doctorName, doctorDescription, date, doctorCategory,  sheduleTime,    "", FirebaseAuth.getInstance().getUid());
+            Doctor doctor = new Doctor("", doctorName, doctorDescription, date, doctorCategory,  sheduleTime,    "", FirebaseAuth.getInstance().getUid());
             // we will uploaded the image to the firebase storage
             uploadImage(doctor);
         }
     }
 
-    private String uploadImage(Doctor doctor) {
+    private String uploadImage(Doctor doctorInfo) {
         // we will uploaded the image to the firebase storage
         final String[] url = {""};
         binding.imgDoctor.setDrawingCacheEnabled(true);
@@ -186,7 +187,7 @@ public class AddDoctorActivity extends AppCompatActivity {
                 // download url in firebase database
                 url[0] = downloadUri.toString();
                 Toast.makeText(AddDoctorActivity.this, "Image uploaded Successfully", Toast.LENGTH_SHORT).show();
-                saveDataInDatabase(doctor, url[0]);
+                saveDataInDatabase(doctorInfo, url[0]);
             } else {
                 // Handle failures
                 Toast.makeText(this, "Error uploading image", Toast.LENGTH_SHORT).show();
@@ -201,6 +202,9 @@ public class AddDoctorActivity extends AppCompatActivity {
         doctorData.setImage(url);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Doctors");
         if (isEdit) {
+
+            doctorData.setId(doctor.getId());
+
             reference.child(doctor.getId()).setValue(doctorData).addOnCompleteListener(task -> {
                 dialog.dismiss();
                 if (task.isSuccessful()) {
