@@ -154,7 +154,7 @@ public class AddDoctorActivity extends AppCompatActivity {
             dialog.setCancelable(false);
             dialog.show();
             //created a doctor object will auto generate
-            Doctor doctor = new Doctor("", doctorName, doctorDescription, date, doctorCategory,  sheduleTime,    "", FirebaseAuth.getInstance().getUid());
+            Doctor doctor = new Doctor("", doctorName, doctorDescription, sheduleTime, doctorCategory, date ,  "", FirebaseAuth.getInstance().getUid());
             // we will uploaded the image to the firebase storage
             uploadImage(doctor);
         }
